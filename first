@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+double estimateCarbonEmissions(int numberOfEmails) {
+    const double CARBON_EMISSIONS_PER_EMAIL = 0.02;
+    return numberOfEmails * CARBON_EMISSIONS_PER_EMAIL;
+}
+
+int main() {
+    string email;
+    int inboxCount, sentCount, spamCount;
+
+    cout << "Enter an email address: ";
+    cin >> email;
+
+    if (email == "abc@xyz.com" || email == "lk356003@gmail.com") {
+        cout << "Enter the number of emails in the inbox: ";
+        cin >> inboxCount;
+        cout << "Enter the number of emails sent: ";
+        cin >> sentCount;
+        cout << "Enter the number of spam emails: ";
+        cin >> spamCount;
+
+        double emissions = (inboxCount + sentCount + spamCount) * estimateCarbonEmissions(1); // 1 email = 0.02 KG
+
+        cout << "Total carbon emissions: " << emissions << " KG" << endl;
+    } else {
+        cout << "Entity not found" << endl;
+    }
+
+    return 0;
+}
