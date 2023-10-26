@@ -13,21 +13,15 @@ int main() {
 
     cout << "Enter an email address: ";
     cin >> email;
+    cout << "Enter the number of emails in the inbox: ";
+    cin >> inboxCount;
+    cout << "Enter the number of emails sent: ";
+    cin >> sentCount;
+    cout << "Enter the number of spam emails: ";
+    cin >> spamCount;
 
-    if (email == "abc@xyz.com" || email == "lk356003@gmail.com") {
-        cout << "Enter the number of emails in the inbox: ";
-        cin >> inboxCount;
-        cout << "Enter the number of emails sent: ";
-        cin >> sentCount;
-        cout << "Enter the number of spam emails: ";
-        cin >> spamCount;
+    double emissions = (inboxCount*0.3) + ((sentCount + spamCount) * estimateCarbonEmissions(1)); // 1 email = 0.02 KG
 
-        double emissions = (inboxCount + sentCount + spamCount) * estimateCarbonEmissions(1); // 1 email = 0.02 KG
-
-        cout << "Total carbon emissions: " << emissions << " KG" << endl;
-    } else {
-        cout << "Entity not found" << endl;
-    }
-
+    cout << "Total carbon emissions: " << emissions << " KG" << endl;
     return 0;
 }
