@@ -22,7 +22,7 @@ private:
     }
 
 public:
-    struct EmailWrapper {
+    struct EmailStructure {
         std::string emailId;
         std::string source;
         std::string inbox;
@@ -30,15 +30,15 @@ public:
         std::string spam;
     };
 
-    EmailWrapper getCarbonFootprint(string& emailId, int inboxEmails, int sentEmails, int spamEmails) {
-        EmailWrapper emailWrapper;
-        emailWrapper.emailId = emailId;
-        emailWrapper.source = getSource(emailId);
-        emailWrapper.inbox = to_string(getInboxEmailsCarbonFootprint(inboxEmails)) + " KG";
-        emailWrapper.sent = to_string(getSentEmailsCarbonFootprint(sentEmails)) + " KG";
-        emailWrapper.spam = to_string(getSpamEmailsCarbonFootprint(spamEmails)) + " KG";
+    EmailStructure getCarbonFootprint(string& emailId, int inboxEmails, int sentEmails, int spamEmails) {
+        EmailStructure emailStructure;
+        emailStructure.emailId = emailId;
+        emailStructure.source = getSource(emailId);
+        emailStructure.inbox = to_string(getInboxEmailsCarbonFootprint(inboxEmails)) + " KG";
+        emailStructure.sent = to_string(getSentEmailsCarbonFootprint(sentEmails)) + " KG";
+        emailStructure.spam = to_string(getSpamEmailsCarbonFootprint(spamEmails)) + " KG";
 
-        return emailWrapper;
+        return emailStructure;
     }
 
     string getSource(string& emailId) {
@@ -69,7 +69,7 @@ int main() {
     cout << "Enter the sent Email count: " << endl;
     cin >> sendEmailCount; 
 
-    EmailCarbonFootprintCalculator::EmailWrapper result = calculatorFootPrints.getCarbonFootprint(email, inboxEmailCount, spamEmailCount, sendEmailCount);
+    EmailCarbonFootprintCalculator::EmailStructure result = calculatorFootPrints.getCarbonFootprint(email, inboxEmailCount, spamEmailCount, sendEmailCount);
     std::cout << "Email ID: " << result.emailId << endl;
     std::cout << "Source: " << result.source << endl;
     std::cout << "Inbox: " << result.inbox << endl;
