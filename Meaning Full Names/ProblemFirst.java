@@ -3,9 +3,9 @@ public class Calculation {
     double operandSecond;
     String upperCaseString;
 
-    public void addIntegers(int operandFirst, int operandSecond) {
-        int sum = operandFirst + operandSecond;
-        System.out.println("Sum: " + sum);
+    public void performAddition(int operandFirst, int operandSecond) {
+        int result = operandFirst + operandSecond;
+        System.out.println("Sum: " + result);
     }
 
     public void convertToUppercase(String inputString) {
@@ -21,7 +21,7 @@ public class MainProgram {
         calculator.operandSecond = 20.5;
         calculator.upperCaseString = "hello";
         
-        calculator.addAndPrintResult(calculator.operandFirst, 5);
-        calculator.updateAndPrintUppercase("world");
+        calculator.performAddition(calculator.operandFirst, 5);
+        calculator.convertToUppercase("world");
     }
 }
